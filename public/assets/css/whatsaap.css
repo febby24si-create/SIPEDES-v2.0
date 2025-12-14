@@ -1,0 +1,68 @@
+/* Floating WhatsApp Button */
+.whatsapp-float {
+    position: fixed;
+    width: 75px;
+    height: 75px;
+    bottom: 25px;
+    right: 25px;
+    background: linear-gradient(145deg, #25d366, #21b65a);
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 38px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4),
+                0 0 20px rgba(37, 211, 102, 0.2);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: pulse 2.5s infinite ease-in-out;
+}
+
+/* Ikon WhatsApp di tengah */
+.whatsapp-icon {
+    margin-top: 18px;
+    transition: transform 0.3s ease;
+}
+
+/* Efek hover */
+.whatsapp-float:hover {
+    background: linear-gradient(145deg, #21b65a, #1ea951);
+    transform: scale(1.12) rotate(5deg);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6),
+                0 0 25px rgba(37, 211, 102, 0.3);
+}
+
+/* Efek ikon membesar sedikit saat hover */
+.whatsapp-float:hover .whatsapp-icon {
+    transform: scale(1.15);
+}
+
+/* Efek berdenyut lembut */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* Responsif di HP */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .whatsapp-icon {
+        margin-top: 15px;
+    }
+}

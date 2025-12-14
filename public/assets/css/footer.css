@@ -1,0 +1,139 @@
+    /* Styling untuk footer */
+    .developer-section {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 15px;
+    }
+    
+    .developer-card {
+        transition: transform 0.3s ease;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+    .developer-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    }
+    
+    .developer-photo {
+        width: 160px;
+        height: 160px;
+        object-fit: cover;
+        border: 4px solid #e9ecef;
+    }
+    
+    .developer-name {
+        color: #2c3e50;
+        font-weight: 600;
+    }
+    
+    .developer-info p {
+        color: #495057;
+        font-size: 0.95rem;
+    }
+    
+    .developer-info i {
+        color: #3b82f6;
+        width: 20px;
+        text-align: center;
+    }
+    
+    .social-links h6, .technologies h6 {
+        color: #2c3e50;
+        font-weight: 600;
+    }
+    
+    .social-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        color: white;
+    }
+    
+    .social-btn i {
+        margin-right: 5px;
+    }
+    
+    .social-btn.linkedin {
+        background-color: #0a66c2;
+    }
+    
+    .social-btn.github {
+        background-color: #333;
+    }
+    
+    .social-btn.instagram {
+        background-color: #e4405f;
+    }
+    
+    .social-btn.email {
+        background-color: #ea4335;
+    }
+    
+    .social-btn:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+        color: white;
+        text-decoration: none;
+    }
+    
+    .tech-badge {
+        display: inline-block;
+        background-color: #e9ecef;
+        color: #495057;
+        padding: 4px 10px;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        border: 1px solid #dee2e6;
+    }
+    
+    /* Responsif */
+    @media (max-width: 768px) {
+        .developer-photo {
+            width: 130px;
+            height: 130px;
+        }
+        
+        .social-btn {
+            padding: 6px 10px;
+            font-size: 0.85rem;
+        }
+        
+        .technologies {
+            text-align: center;
+        }
+        
+        .technologies .d-flex {
+            justify-content: center;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .developer-card .card-body {
+            padding: 15px;
+        }
+        
+        .developer-info {
+            text-align: center;
+        }
+        
+        .social-links {
+            text-align: center;
+        }
+        
+        .social-btn span {
+            display: inline !important;
+        }
+        
+        .developer-photo {
+            width: 110px;
+            height: 110px;
+        }
+    }

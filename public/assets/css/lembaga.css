@@ -1,0 +1,124 @@
+/* ===============================
+   GLOBAL STYLE
+================================ */
+body {
+    background-color: #f4f6f9;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.page-header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.page-header small {
+    color: #6b7280;
+}
+
+/* ===============================
+   CARD
+================================ */
+.lembaga-card {
+    background: #ffffff;
+    border-radius: 14px;
+    border: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,.04);
+}
+
+.lembaga-card .card-header {
+    background: transparent;
+    border-bottom: 1px solid #e5e7eb;
+    font-weight: 600;
+}
+
+/* ===============================
+   TABLE
+================================ */
+.table thead th {
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: #6b7280;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.table tbody td {
+    vertical-align: middle;
+    color: #374151;
+}
+
+.table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+/* ===============================
+   LOGO
+================================ */
+.lembaga-logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    object-fit: contain;
+    background: #f3f4f6;
+    padding: 6px;
+}
+
+/* ===============================
+   DESCRIPTION
+================================ */
+.desc-box {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 16px;
+    line-height: 1.7;
+    white-space: normal;
+    word-break: break-word;
+    color: #374151;
+}
+
+/* ===============================
+   FORM
+================================ */
+.form-control,
+textarea {
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+}
+
+.form-control:focus,
+textarea:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 .15rem rgba(99,102,241,.15);
+}
+
+/* ===============================
+   BUTTON
+================================ */
+.btn {
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.action-btn {
+    display: flex;
+    gap: 8px;
+}
+
+/* ===============================
+   BADGE
+================================ */
+.badge-soft {
+    background: #eef2ff;
+    color: #4338ca;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 20px;
+}

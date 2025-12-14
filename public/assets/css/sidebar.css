@@ -1,0 +1,58 @@
+/* ===============================
+   SIDEBAR BACKGROUND
+================================ */
+.left-sidebar {
+    background: linear-gradient(180deg, #1e293b, #0f172a);
+}
+
+/* ===============================
+   SIDEBAR LINK
+================================ */
+.left-sidebar .sidebar-link {
+    color: #cbd5e1;
+    transition: all 0.3s ease;
+}
+
+/* Hover */
+.left-sidebar .sidebar-link:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #38bdf8;
+}
+
+/* Icon */
+.left-sidebar .sidebar-link iconify-icon {
+    color: #ffffff;
+}
+
+/* Hover icon */
+.left-sidebar .sidebar-link:hover iconify-icon {
+    color: #38bdf8;
+}
+
+/* ===============================
+   ACTIVE MENU
+================================ */
+.left-sidebar .sidebar-item.active > .sidebar-link {
+    background-color: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+    border-left: 4px solid #38bdf8;
+}
+
+.left-sidebar .sidebar-item.active iconify-icon {
+    color: #38bdf8;
+}
+
+/* ===============================
+   NAV SMALL CAP (HOME, SISTEM, dll)
+================================ */
+.left-sidebar .nav-small-cap {
+    color: #64748b;
+}
+
+/* ===============================
+   LOGO AREA
+================================ */
+.brand-logo {
+    background: #020617;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
