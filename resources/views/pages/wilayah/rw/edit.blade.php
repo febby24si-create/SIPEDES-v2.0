@@ -30,7 +30,7 @@
                     <div class="col-md-6">
                         <!-- Nomor RW -->
                         <div class="form-group mb-4">
-                            <label for="nomor_rw" class="form-label text-light">
+                            <label for="nomor_rw" class="form-label text-dark">
                                 <i class="fas fa-hashtag me-2"></i>Nomor RW *
                             </label>
                             <input type="number" 
@@ -51,7 +51,7 @@
 
                         <!-- Nama Ketua RW -->
                         <div class="form-group mb-4">
-                            <label for="nama_ketua_rw" class="form-label text-light">
+                            <label for="nama_ketua_rw" class="form-label text-dark">
                                 <i class="fas fa-user me-2"></i>Nama Ketua RW *
                             </label>
                             <input type="text" 
@@ -70,7 +70,7 @@
 
                         <!-- Kontak RW -->
                         <div class="form-group mb-4">
-                            <label for="kontak_rw" class="form-label text-light">
+                            <label for="kontak_rw" class="form-label text-dark">
                                 <i class="fas fa-phone me-2"></i>Kontak RW
                             </label>
                             <input type="text" 
@@ -90,7 +90,7 @@
                     <div class="col-md-6">
                         <!-- Alamat RW -->
                         <div class="form-group mb-4">
-                            <label for="alamat_rw" class="form-label text-light">
+                            <label for="alamat_rw" class="form-label text-dark">
                                 <i class="fas fa-map-marker-alt me-2"></i>Alamat RW
                             </label>
                             <textarea class="form-control dashboard-input @error('alamat_rw') is-invalid @enderror" 
@@ -107,7 +107,7 @@
 
                         <!-- Status -->
                         <div class="form-group mb-4">
-                            <label for="status" class="form-label text-light">
+                            <label for="status" class="form-label text-dark">
                                 <i class="fas fa-circle me-2"></i>Status *
                             </label>
                             <select class="form-control dashboard-input @error('status') is-invalid @enderror" 

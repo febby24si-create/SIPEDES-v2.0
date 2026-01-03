@@ -1,271 +1,135 @@
-<!-- resources/views/lembaga/create.blade.php -->
 @extends('layouts.admin.app')
 
-@section('title', 'Tambah Lembaga Desa')
-@section('page_title', 'Tambah Lembaga')
-
 @section('content')
-<div class="container-fluid py-4">
-    <!-- Header -->
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4">
-        <div class="mb-3 mb-md-0">
-            <h1 class="dashboard-page-title mb-2">
-                <i class="fas fa-plus-circle text-primary me-3"></i>Tambah Lembaga Desa
-            </h1>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb bg-transparent p-0 mb-0">
-                    <li class="breadcrumb-item">
-                        <a href="{{ route('admin.dashboard') }}" class="text-decoration-none text-muted">Dashboard</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <a href="{{ route('admin.lembaga.index') }}" class="text-decoration-none text-muted">Lembaga Desa</a>
-                    </li>
-                    <li class="breadcrumb-item active text-primary" aria-current="page">Tambah</li>
-                </ol>
-            </nav>
-        </div>
-        <a href="{{ route('admin.lembaga.index') }}" class="btn btn-secondary">
-            <i class="fas fa-arrow-left me-2"></i> Kembali
-        </a>
-    </div>
-
-    <!-- Card Form -->
-    <div class="card dashboard-card shadow mb-4">
-        <div class="card-header">
-            <h6 class="m-0 font-weight-bold text-white">
-                <i class="fas fa-info-circle me-2"></i>Form Data Lembaga Desa
-            </h6>
-        </div>
-        <div class="card-body">
-            <form action="{{ route('admin.lembaga.store') }}" method="POST" id="formLembaga" enctype="multipart/form-data">
-                @csrf
-                
-                <div class="row">
-                    <!-- Nama Lembaga -->
-                    <div class="col-md-6 mb-3">
-                        <label for="nama_lembaga" class="form-label fw-bold">
-                            Nama Lembaga <span class="text-danger">*</span>
-                        </label>
-                        <div class="input-group">
-                            <span class="input-group-text bg-primary text-white">
-                                <i class="fas fa-building"></i>
-                            </span>
-                            <input type="text" class="form-control @error('nama_lembaga') is-invalid @enderror" 
-                                   id="nama_lembaga" name="nama_lembaga" value="{{ old('nama_lembaga') }}" 
-                                   placeholder="Masukkan nama lembaga desa" required>
-                            @error('nama_lembaga')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="form-text text-muted">
-                            Contoh: Badan Permusyawaratan Desa, Lembaga Pemberdayaan Masyarakat, dll.
-                        </div>
+<div class="main-content-inner p-3 p-md-4"> 
+    <div class="container-fluid">
+        
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h2 class="fw-bold text-dark mb-1">Tambah Lembaga Desa</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb mb-0">
+                                <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Tambah Lembaga</li>
+                            </ol>
+                        </nav>
                     </div>
+                    <a href="{{ route('admin.lembaga.index') }}" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-arrow-left me-1"></i> Kembali
+                    </a>
+                </div>
+            </div>
+        </div>
 
-                    <!-- Kontak -->
-                    <div class="col-md-6 mb-3">
-                        <label for="kontak" class="form-label fw-bold">
-                            Kontak
-                        </label>
-                        <div class="input-group">
-                            <span class="input-group-text bg-info text-white">
-                                <i class="fas fa-phone"></i>
-                            </span>
-                            <input type="text" class="form-control @error('kontak') is-invalid @enderror" 
-                                   id="kontak" name="kontak" value="{{ old('kontak') }}" 
-                                   placeholder="Nomor telepon atau email">
-                            @error('kontak')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="form-text text-muted">
-                            Bisa berupa nomor telepon, email, atau media komunikasi lainnya.
+        <form action="{{ route('admin.lembaga.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="row g-4"> <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="mb-4">
+                                <label class="form-label fw-bold text-dark">Nama Lembaga <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-primary text-white border-0"><i class="fas fa-landmark"></i></span>
+                                    <input type="text" name="nama_lembaga" class="form-control" placeholder="Masukkan nama lembaga..." required>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fw-bold text-dark">Kontak Lembaga</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-primary text-white border-0"><i class="fas fa-phone"></i></span>
+                                    <input type="text" name="kontak" class="form-control" placeholder="Nomor Telepon/Email">
+                                </div>
+                            </div>
+
+                            <div class="mb-0">
+                                <label class="form-label fw-bold text-dark">Deskripsi <span class="text-danger">*</span></label>
+                                <textarea id="deskripsi" name="deskripsi" class="form-control" rows="8" placeholder="Tulis deskripsi di sini..." required></textarea>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <small class="text-dark">Minimal 50 karakter</small>
+                                    <small id="deskripsi-counter" class="fw-bold text-muted">0 karakter</small>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Logo Lembaga -->
-                <div class="mb-3">
-                    <label for="logo" class="form-label fw-bold">
-                        Logo Lembaga
-                    </label>
-                    <div class="input-group">
-                        <input type="file" class="form-control @error('logo') is-invalid @enderror" 
-                               id="logo" name="logo" accept="image/*">
-                        @error('logo')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body p-4">
+                            <label class="form-label fw-bold text-dark mb-3">Logo Lembaga</label>
+                            <div id="preview-container" class="bg-light rounded-3 d-flex flex-column align-items-center justify-content-center mb-3 border border-2 border-dashed" style="height: 200px;">
+                                <img id="preview-image" src="#" class="img-fluid rounded d-none" style="max-height: 180px;">
+                                <div id="placeholder-icon" class="text-center">
+                                    <i class="fas fa-landmark fa-3x text-muted mb-2"></i>
+                                    <p class="text-muted small mb-0">Belum ada logo</p>
+                                </div>
+                            </div>
+                            <input type="file" name="logo" class="form-control form-control-sm" onchange="previewLogo(this)" accept="image/*">
+                        </div>
                     </div>
-                    <div class="form-text text-muted">
-                        Format: JPG, PNG, JPEG. Maksimal 2MB. Ukuran disarankan 300x300px.
+
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <label class="form-label fw-bold text-dark mb-3">Dokumen Tambahan</label>
+                            <input type="file" name="dokumen[]" class="form-control" multiple>
+                            <small class="text-muted d-block mt-2 small">Format: PDF, JPG, PNG (Maks 10MB)</small>
+                        </div>
                     </div>
-                    
-                    <!-- Preview Logo -->
-                    <div id="logo-preview" class="mt-3 text-center" style="display: none;">
-                        <img id="preview-image" class="img-thumbnail" style="max-width: 200px; max-height: 200px;">
-                        <div class="mt-2">
-                            <button type="button" class="btn btn-sm btn-danger" onclick="removeLogoPreview()">
-                                <i class="fas fa-times me-1"></i> Hapus Preview
+                </div>
+            </div>
+
+            <div class="row mt-4 mb-5">
+                <div class="col-12">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body d-flex justify-content-end gap-2">
+                            <button type="reset" class="btn btn-dark border px-4">Reset</button>
+                            <button type="submit" class="btn btn-primary fw-bold">
+                                <i class="fas fa-save me-2"></i>Simpan Lembaga
                             </button>
                         </div>
                     </div>
                 </div>
-
-                <!-- Deskripsi -->
-                <div class="mb-3">
-                    <label for="deskripsi" class="form-label fw-bold">
-                        Deskripsi <span class="text-danger">*</span>
-                    </label>
-                    <textarea class="form-control @error('deskripsi') is-invalid @enderror" 
-                              id="deskripsi" name="deskripsi" rows="6" 
-                              placeholder="Jelaskan tentang lembaga desa, tugas, dan fungsinya" required>{{ old('deskripsi') }}</textarea>
-                    <div class="d-flex justify-content-between mt-2">
-                        <div class="form-text text-muted">Minimal 50 karakter</div>
-                        <div id="deskripsi-counter" class="form-text text-muted">0 karakter</div>
-                    </div>
-                    @error('deskripsi')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <!-- Tombol Aksi -->
-                <div class="d-flex justify-content-end gap-2 pt-3 border-top">
-                    <a href="{{ route('admin.lembaga.index') }}" class="btn btn-outline-secondary">
-                        <i class="fas fa-times me-2"></i>Batal
-                    </a>
-                    <button type="submit" class="btn btn-primary" id="btnSubmit">
-                        <i class="fas fa-save me-2"></i>Simpan Lembaga
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-<!-- Dokumen Lembaga -->
-<div class="mb-3">
-    <label for="dokumen" class="form-label fw-bold">
-        Dokumen & Media Lembaga
-    </label>
-    <div class="input-group">
-        <input type="file" class="form-control @error('dokumen') is-invalid @enderror" 
-               id="dokumen" name="dokumen[]" multiple 
-               accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx,.xls,.xlsx,.mp4,.avi,.mov">
-        @error('dokumen')
-            <div class="invalid-feedback">{{ $message }}</div>
-        @enderror
-    </div>
-    <div class="form-text text-muted">
-        Bisa upload gambar, dokumen (PDF, Word, Excel), dan video. Maksimal 10MB per file.
-    </div>
-</div>
-    <!-- Informasi Tambahan -->
-    <div class="card dashboard-card border-left-info mb-4">
-        <div class="card-body">
-            <div class="row align-items-center">
-                <div class="col-auto">
-                    <i class="fas fa-info-circle fa-2x text-info"></i>
-                </div>
-                <div class="col">
-                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tips</div>
-                    <div class="text-gray-800 small">
-                        Pastikan data yang dimasukkan sudah sesuai dan lengkap. Nama lembaga harus unik dan tidak boleh sama dengan lembaga yang sudah ada. 
-                        Deskripsi harus jelas dan informatif untuk memahami tujuan dan fungsi lembaga.
-                    </div>
-                </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
-@endsection
-
 
 <style>
-.form-label {
-    color: var(--text-primary) !important;
-    margin-bottom: 0.5rem;
-}
-
-.form-control:focus {
-    border-color: var(--primary) !important;
-    box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25) !important;
-}
-
-.input-group-text {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark)) !important;
-    border-color: var(--primary-dark) !important;
-    color: #ffffff !important;
-}
-
-.input-group-text.bg-info {
-    background: linear-gradient(135deg, var(--accent), #7c3aed) !important;
-    border-color: #7c3aed !important;
-}
-
-.breadcrumb {
-    background-color: transparent !important;
-    padding: 0 !important;
-    margin-bottom: 0 !important;
-}
-
-.breadcrumb-item a {
-    color: var(--text-muted) !important;
-    text-decoration: none !important;
-    transition: color var(--transition-speed) ease !important;
-}
-
-.breadcrumb-item a:hover {
-    color: var(--primary) !important;
-}
-
-.breadcrumb-item.active {
-    color: var(--primary) !important;
-}
-
-.border-left-info {
-    border-left: 4px solid var(--accent) !important;
-}
-
-.text-xs {
-    font-size: 0.7rem !important;
-}
-
-.fw-medium {
-    font-weight: 500 !important;
-}
-
-.alert {
-    border-radius: 12px !important;
-    border: none !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
-}
-
-.img-thumbnail {
-    border-radius: 12px !important;
-    border: 2px solid #e2e8f0 !important;
-    transition: all var(--transition-speed) ease !important;
-}
-
-.img-thumbnail:hover {
-    transform: scale(1.05) !important;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
-}
-
-.form-check-input:checked {
-    background-color: var(--primary) !important;
-    border-color: var(--primary) !important;
-}
-
-@media (max-width: 768px) {
-    .d-flex.flex-md-row {
-        flex-direction: column !important;
+    /* Tambahkan CSS ini untuk memberi jarak aman dari sidebar */
+    .main-content-inner {
+        margin-left: 0; /* Sesuaikan jika sidebar Anda fixed */
+        transition: all 0.3s;
     }
     
-    .btn {
-        width: 100% !important;
-        margin-bottom: 0.5rem;
-    }
-    
-    .d-flex.justify-content-end.gap-2 {
-        flex-direction: column;
-    }
-}
+    .border-dashed { border-style: dashed !important; border-color: #ced4da !important; }
+    .form-label { color: #333 !important; }
+    .input-group-text { width: 45px; justify-content: center; }
 </style>
+
+<script>
+    // Preview Logo
+    function previewLogo(input) {
+        const file = input.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('preview-image').src = e.target.result;
+                document.getElementById('preview-image').classList.remove('d-none');
+                document.getElementById('placeholder-icon').classList.add('d-none');
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+
+    // Counter Deskripsi
+    document.getElementById('deskripsi').addEventListener('input', function() {
+        const length = this.value.length;
+        const counter = document.getElementById('deskripsi-counter');
+        counter.innerText = length + ' karakter';
+        counter.className = length < 50 ? 'fw-bold text-danger' : 'fw-bold text-success';
+    });
+</script>
+@endsection

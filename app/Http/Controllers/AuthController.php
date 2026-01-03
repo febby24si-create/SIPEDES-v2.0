@@ -45,11 +45,11 @@ class AuthController extends Controller
         }
 
         // Debug: Cek password
-        if (!Hash::check($request->password, $user->password)) {
-            return back()->withErrors([
-                'email' => 'Password tidak valid.',
-            ])->onlyInput('email');
-        }
+        // if (!Hash::check($request->password, $user->password)) {
+        //     return back()->withErrors([
+        //         'email' => 'Password tidak valid.',
+        //     ])->onlyInput('email');
+        // }
 
         // Coba login dengan credentials
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
@@ -69,7 +69,7 @@ class AuthController extends Controller
             'name' => 'required|string|max:100',
             'email' => 'required|email|unique:users|max:100',
             'password' => 'required|min:6|confirmed',
-            'role' => 'required|in:admin,operator',
+            'role' => 'required|in:admin,operator','user'
         ]);
 
         try {

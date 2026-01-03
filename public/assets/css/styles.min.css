@@ -2586,7 +2586,7 @@ progress {
   color: var(--bs-body-color);
   background-color: transparent;
   background-clip: padding-box;
-  border: var(--bs-border-width) solid #dbe1e6;
+  border: var(--bs-border-width) solid #000000;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;

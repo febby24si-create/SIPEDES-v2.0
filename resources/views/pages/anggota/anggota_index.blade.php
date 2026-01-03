@@ -28,40 +28,59 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 text-md-right">
-            <div class="btn-group" role="group">
-                <a href="{{ route('admin.lembaga.anggota.create', $lembaga->id) }}"
-                    class="btn btn-primary shadow-sm">
-                    <i class="fas fa-plus-circle mr-2"></i>Tambah Anggota
-                </a>
-                <a href="{{ route('admin.lembaga.index') }}" class="btn btn-outline-secondary shadow-sm ml-2">
-                    <i class="fas fa-arrow-left mr-2"></i>Kembali
-                </a>
-            </div>
-        </div>
+<div class="col-md-6 text-md-right">
+    <div class="d-flex justify-content-md-end align-items-center" style="gap: 10px;">
+        <a href="{{ route('admin.lembaga.index') }}" class="btn btn-secondary shadow-sm">
+            <i class="fas fa-arrow-left mr-2"></i>Kembali
+        </a>
+        <a href="{{ route('admin.lembaga.anggota.create', $lembaga->id) }}"
+            class="btn btn-primary shadow-sm">
+            <i class="fas fa-plus-circle mr-2"></i> Tambah Anggota
+        </a>
+    </div>
+</div>
     </div>
 
     <!-- Informasi Lembaga -->
-    <div class="card border-left-primary shadow mb-4">
-        <div class="card-body">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <h4 class="card-title font-weight-bold text-primary mb-1">{{ $lembaga->nama_lembaga }}</h4>
-                    <p class="card-text text-muted mb-0">{{ Str::limit($lembaga->deskripsi, 150) }}</p>
-                    @if($lembaga->kontak)
-                        <div class="mt-2">
-                            <small class="text-muted"><i class="fas fa-phone mr-1"></i> {{ $lembaga->kontak }}</small>
-                        </div>
-                    @endif
+<div class="card border-left-primary shadow mb-4">
+    <div class="card-body">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <div class="d-flex align-items-center mb-1">
+                    <h4 class="card-title font-weight-bold text-primary mb-0 mr-2">{{ $lembaga->nama_lembaga }}</h4>
+                    <span class="badge badge-light text-primary border border-primary small">
+                        <i class="fas fa-tag mr-1"></i> Lembaga Desa
+                    </span>
                 </div>
-                <div class="col-md-4 text-md-right">
-                    <div class="text-md-right">
-                        <span class="badge badge-primary badge-lg p-2">Total: {{ $anggotas->count() }} Anggota</span>
+                
+                <p class="card-text text-muted mb-0">{{ Str::limit($lembaga->deskripsi, 150) }}</p>
+                
+                <div class="mt-2 d-flex flex-wrap" style="gap: 10px;">
+                    @if($lembaga->kontak)
+                        <span class="badge badge-pill badge-light text-muted border">
+                            <i class="fas fa-phone-alt mr-1 text-primary"></i> {{ $lembaga->kontak }}
+                        </span>
+                    @endif
+                    <span class="badge badge-pill badge-light text-muted border">
+                        <i class="fas fa-check-circle mr-1 text-success"></i> Terverifikasi
+                    </span>
+                </div>
+            </div>
+            
+            <div class="col-md-4 text-md-right mt-3 mt-md-0">
+                <div class="text-md-right">
+                    <div class="d-inline-block text-center">
+                        <span class="badge badge-primary badge-lg p-2 shadow-sm" style="min-width: 120px;">
+                            <i class="fas fa-user-friends mr-2"></i>{{ $anggotas->count() }} Anggota
+                        </span>
+                        <br>
+                        <small class="text-muted font-italic">Tahun Bakti {{ now()->year }}</small>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
     <!-- Statistik Cards -->
     <div class="row mb-4">

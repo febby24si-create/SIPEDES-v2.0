@@ -11,7 +11,8 @@ class LembagaDesa extends Model
 {
     use HasFactory;
 
-    protected $table = 'lembaga_desas'; // pastikan sesuai dengan nama tabel
+    protected $table = 'lembaga_desas';
+    
     protected $fillable = [
         'nama_lembaga',
         'deskripsi',

@@ -7,16 +7,6 @@
     <h1 class="h3 mb-4 text-gray-800">
         <i class="fas fa-user"></i> Detail User
     </h1>
-
-        <!-- DEBUG INFO -->
-    <div class="alert alert-info mb-4">
-        <h5>Debug Info:</h5>
-        <p>Avatar filename: <strong>{{ $user->avatar ?? 'NULL' }}</strong></p>
-        <p>Avatar URL: <strong>{{ $user->avatar_url }}</strong></p>
-        <p>Storage Path: <strong>{{ storage_path('app/public/avatars/' . $user->avatar) }}</strong></p>
-        <p>File exists: <strong>{{ $user->avatar && file_exists(storage_path('app/public/avatars/' . $user->avatar)) ? 'YES' : 'NO' }}</strong></p>
-    </div>
-
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Data Lengkap User</h6>

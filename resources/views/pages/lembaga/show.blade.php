@@ -333,7 +333,7 @@
 
 @section('content')
 <div class="container-fluid py-4">
-    <!-- Security Alert -->
+    {{-- <!-- Security Alert -->
     <div class="security-alert">
         <div class="d-flex align-items-center">
             <i class="fas fa-shield-alt me-3 fa-lg"></i>
@@ -348,13 +348,13 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Page Header -->
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-5">
         <div class="mb-3 mb-md-0">
             <h1 class="dashboard-page-title mb-2">
-                <i class="fas fa-building me-3"></i>Detail Lembaga Desa
+                <i class="fas fa-landmark"></i></i> Detail Lembaga Desa
             </h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-transparent p-0 mb-0">
@@ -385,7 +385,7 @@
             <!-- Basic Information Card -->
             <div class="card dashboard-card mb-4">
                 <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-white">
+                    <h6 class="m-0 font-weight-bold text-black">
                         <i class="fas fa-info-circle me-2"></i>Informasi Dasar Lembaga
                     </h6>
                 </div>
@@ -396,13 +396,13 @@
                                 <table class="table table-borderless detail-table">
                                     <tbody>
                                         <tr>
-                                            <td class="fw-bold text-gray-800">Nama Lembaga</td>
+                                            <td class="fw-bold text-black">Nama Lembaga</td>
                                             <td>
                                                 <strong class="text-primary fs-5">{{ $lembaga->nama_lembaga }}</strong>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="fw-bold text-gray-800">Deskripsi</td>
+                                            <td class="fw-bold text-black">Deskripsi</td>
                                             <td>
 <div class="text-pre-wrap text-muted bg-light p-3 rounded lh-lg">
     {{ $lembaga->deskripsi }}
@@ -411,7 +411,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="fw-bold text-gray-800">Kontak</td>
+                                            <td class="fw-bold text-black">Kontak</td>
                                             <td>
                                                 @if($lembaga->kontak)
                                                     <div class="d-flex align-items-center">
@@ -419,7 +419,7 @@
                                                             <i class="fas fa-phone text-info"></i>
                                                         </div>
                                                         <div>
-                                                            <span class="text-gray-800 fs-6">{{ $lembaga->kontak }}</span>
+                                                            <span class="text-black-800 fs-6">{{ $lembaga->kontak }}</span>
                                                             <div class="small text-muted mt-1">
                                                                 <i class="fas fa-clock me-1"></i>
                                                                 Responsif dalam 24 jam
@@ -434,8 +434,8 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="fw-bold text-gray-800">Dibuat Pada</td>
-                                            <td class="text-muted">
+                                            <td class="fw-bold text-black">Dibuat Pada</td>
+                                            <td class="text-black">
                                                 <div class="d-flex align-items-center">
                                                     <div class="bg-primary bg-opacity-10 p-2 rounded-circle me-3">
                                                         <i class="fas fa-calendar-plus text-primary"></i>
@@ -450,7 +450,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="fw-bold text-gray-800">Terakhir Diupdate</td>
+                                            <td class="fw-bold text-black">Terakhir Diupdate</td>
                                             <td class="text-muted">
                                                 <div class="d-flex align-items-center">
                                                     <div class="bg-success bg-opacity-10 p-2 rounded-circle me-3">
@@ -481,18 +481,17 @@
                                         <button type="button" 
                                                 class="btn-view-logo" 
                                                 onclick="openImageModal('{{ asset('storage/' . $lembaga->logo) }}', 'Logo {{ $lembaga->nama_lembaga }}')">
-                                            <i class="fas fa-expand me-2"></i>Lihat Full
                                         </button>
                                     </div>
                                 </div>
-                                <div class="small text-muted mb-2">
+                                <div class="small text-inverse mb-2">
                                     Logo Lembaga
                                 </div>
                             @else
-                                <div class="bg-light rounded d-flex flex-column align-items-center justify-content-center mb-3" 
-                                     style="height: 220px;">
-                                    <i class="fas fa-building fa-4x text-muted mb-3"></i>
-                                    <p class="text-muted mb-0">Belum ada logo</p>
+                                <div class="bg-light rounded d-flex flex-column align-items-center justify-content-center mb-3 border" 
+                                    style="height: 220px;">
+                                    <i class="fas fa-landmark fa-4x text-muted mb-3"></i>
+                                    <p class="text-dark fw-bold mb-0">Belum ada logo</p>
                                 </div>
                             @endif
                             <div class="text-muted small bg-light p-2 rounded">
@@ -507,11 +506,11 @@
             <!-- Dokumen & Media Card -->
             <div class="card dashboard-card mb-4">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h6 class="m-0 font-weight-bold text-white">
+                    <h6 class="m-0 font-weight-bold text-dark">
                         <i class="fas fa-paperclip me-2"></i>Dokumen & Media
                         <span class="badge bg-light text-dark ms-2">{{ $lembaga->dokumens->count() }}</span>
                     </h6>
-                    <a href="{{ route('admin.lembaga.edit', $lembaga->id) }}#dokumen" class="btn btn-sm btn-light">
+                    <a href="{{ route('admin.lembaga.edit', $lembaga->id) }}#dokumen" class="btn btn-primary btn-sm">
                         <i class="fas fa-plus me-1"></i>Tambah Dokumen
                     </a>
                 </div>
@@ -775,7 +774,7 @@
                                     </div>
                                     <div class="flex-grow-1 ms-4">
                                         <div class="h2 mb-1 fw-bold">{{ $lembaga->jabatans_count }}</div>
-                                        <div class="text-muted">Total Jabatan</div>
+                                        <div class="text-black">Total Jabatan</div>
                                         <a href="{{ route('admin.lembaga.jabatan.index', $lembaga->id) }}" 
                                            class="small text-primary text-decoration-none">
                                             Lihat semua <i class="fas fa-arrow-right ms-1"></i>
@@ -795,7 +794,7 @@
                                     </div>
                                     <div class="flex-grow-1 ms-4">
                                         <div class="h2 mb-1 fw-bold">{{ $lembaga->anggotas_count }}</div>
-                                        <div class="text-muted">Total Anggota</div>
+                                        <div class="text-black">Total Anggota</div>
                                         <a href="{{ route('admin.lembaga.anggota.index', $lembaga->id) }}" 
                                            class="small text-success text-decoration-none">
                                             Lihat semua <i class="fas fa-arrow-right ms-1"></i>
@@ -815,7 +814,7 @@
                                     </div>
                                     <div class="flex-grow-1 ms-4">
                                         <div class="h2 mb-1 fw-bold">{{ $lembaga->dokumens->count() }}</div>
-                                        <div class="text-muted">Total Dokumen</div>
+                                        <div class="text-black">Total Dokumen</div>
                                         <a href="#dokumen" class="small text-warning text-decoration-none">
                                             Lihat semua <i class="fas fa-arrow-right ms-1"></i>
                                         </a>
@@ -899,7 +898,7 @@
             <!-- System Info Card -->
             <div class="card dashboard-card">
                 <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-white">
+                    <h6 class="m-0 font-weight-bold text-dark">
                         <i class="fas fa-info-circle me-2"></i>Informasi Sistem
                     </h6>
                 </div>

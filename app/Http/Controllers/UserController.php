@@ -75,7 +75,7 @@ class UserController extends Controller
             'name' => 'required|max:100',
             'email' => 'required|email|unique:users|max:100',
             'password' => 'required|min:6|confirmed',
-            'role' => 'required|in:admin,operator',
+            'role' => 'required|in:admin,operator,user',
             'avatar' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
         ]);
 
@@ -180,7 +180,7 @@ class UserController extends Controller
                 Rule::unique('users')->ignore($user->id),
             ],
             'password' => 'nullable|min:6|confirmed',
-            'role' => 'required|in:admin,operator',
+            'role' => 'required|in:admin,operator,user',
             'avatar' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
         ]);
 

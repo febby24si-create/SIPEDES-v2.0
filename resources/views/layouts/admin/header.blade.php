@@ -34,30 +34,30 @@
                    height="35" 
                    class="rounded-circle border border-white">
               <!-- Nama User -->
-              <span class="ms-2 text-dark fw-medium d-none d-md-inline">
-                {{ $userName }}
+              <span class="ms-2 text-black fw-medium d-none d-md-inline">
+              {{ $userName }}
               </span>
 
-              <span class="badge bg-{{ $userRole == 'admin' ? 'danger' : 'info' }} ms-2 d-none d-md-inline">
-                {{ $roleDisplay }}
+              <span class="badge bg-{{ $userRole == 'admin' ? 'danger' : 'info' }} text-dark ms-2 d-none d-md-inline">
+                  {{ $roleDisplay }}
               </span>
-
             </div>
           </a>
           <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up user-dropdown"
               aria-labelledby="drop2">
           <div class="message-body">
               <!-- Info User -->
-              <div class="px-3 py-2 mb-2 border-bottom">
-                <p class="mb-0 fw-bold">{{ $userName }}</p>
-                <small class="text-muted">{{ $user->email ?? 'No email' }}</small>
-                <div class="mt-1">
-                  <span class="badge bg-{{ $userRole == 'admin' ? 'danger' : 'info' }}">
-                    {{ $roleDisplay }}
-                  </span>
-                </div>
-              </div>
+          <div class="px-3 py-2 mb-2 border-bottom">
+              <p class="mb-0 fw-bold text-dark">{{ $userName }}</p>
               
+              <small style="color: rgba(0,0,0,0.7);">{{ $user->email ?? 'No email' }}</small>
+              
+              <div class="mt-1">
+                  <span class="badge bg-{{ $userRole == 'admin' ? 'danger' : 'info' }}" style="color: #000 !important; font-weight: 600;">
+                      {{ $roleDisplay }}
+                  </span>
+              </div>
+          </div>
               <!-- Menu Items -->
               <a href="{{ route('profile') }}" class="d-flex align-items-center gap-2 dropdown-item">
                 <i class="ti ti-user fs-6"></i>

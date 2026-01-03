@@ -29,7 +29,7 @@
                     <div class="col-md-6">
                         <!-- RW -->
                         <div class="form-group mb-4">
-                            <label for="rw_id" class="form-label text-light">
+                            <label for="rw_id" class="form-label text-dark">
                                 <i class="fas fa-map-signs me-2"></i>RW *
                             </label>
                             <select class="form-control dashboard-input @error('rw_id') is-invalid @enderror" 
@@ -52,7 +52,7 @@
 
                         <!-- Nomor RT -->
                         <div class="form-group mb-4">
-                            <label for="nomor_rt" class="form-label text-light">
+                            <label for="nomor_rt" class="form-label text-dark">
                                 <i class="fas fa-hashtag me-2"></i>Nomor RT *
                             </label>
                             <input type="number" 
@@ -73,7 +73,7 @@
 
                         <!-- Nama Ketua RT -->
                         <div class="form-group mb-4">
-                            <label for="nama_ketua_rt" class="form-label text-light">
+                            <label for="nama_ketua_rt" class="form-label text-dark">
                                 <i class="fas fa-user me-2"></i>Nama Ketua RT *
                             </label>
                             <input type="text" 
@@ -94,7 +94,7 @@
                     <div class="col-md-6">
                         <!-- Kontak RT -->
                         <div class="form-group mb-4">
-                            <label for="kontak_rt" class="form-label text-light">
+                            <label for="kontak_rt" class="form-label text-dark">
                                 <i class="fas fa-phone me-2"></i>Kontak RT
                             </label>
                             <input type="text" 
@@ -112,7 +112,7 @@
 
                         <!-- Alamat RT -->
                         <div class="form-group mb-4">
-                            <label for="alamat_rt" class="form-label text-light">
+                            <label for="alamat_rt" class="form-label text-dark">
                                 <i class="fas fa-map-marker-alt me-2"></i>Alamat RT
                             </label>
                             <textarea class="form-control dashboard-input @error('alamat_rt') is-invalid @enderror" 
@@ -129,7 +129,7 @@
 
                         <!-- Status -->
                         <div class="form-group mb-4">
-                            <label for="status" class="form-label text-light">
+                            <label for="status" class="form-label text-dark">
                                 <i class="fas fa-circle me-2"></i>Status *
                             </label>
                             <select class="form-control dashboard-input @error('status') is-invalid @enderror" 

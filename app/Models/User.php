@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
-
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -27,12 +26,13 @@ class User extends Authenticatable
     ];
 
     /**
-     * Automatically hash password when setting
+     * Automatically hash password when setting - UNCOMMENT INI
      */
-    // public function setPasswordAttribute($value)
-    // {
-    //     $this->attributes['password'] = Hash::make($value);
-    // }
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Hash::make($value);
+    }
+
     /**
      * Check if user is admin
      */
@@ -48,6 +48,15 @@ class User extends Authenticatable
     {
         return $this->role === 'operator';
     }
+
+    /**
+     * Check if user is user
+     */
+    public function isUser()
+    {
+        return $this->role === 'user';
+    }
+
     /**
      * Get avatar URL
      */
@@ -65,6 +74,12 @@ class User extends Authenticatable
      */
     public function getRoleDisplayAttribute()
     {
-        return $this->role === 'admin' ? 'Administrator' : 'Operator';
+        $roles = [
+            'admin' => 'Administrator',
+            'operator' => 'Operator',
+            'user' => 'User'
+        ];
+
+        return $roles[$this->role] ?? 'User';
     }
 }
