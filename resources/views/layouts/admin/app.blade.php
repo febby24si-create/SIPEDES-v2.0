@@ -14,6 +14,7 @@
   @include('layouts.admin.css')
 
   @stack('styles')
+  @yield('scripts')
 </head>
 
 <body>

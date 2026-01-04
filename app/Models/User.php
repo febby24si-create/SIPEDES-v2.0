@@ -28,10 +28,10 @@ class User extends Authenticatable
     /**
      * Automatically hash password when setting - UNCOMMENT INI
      */
-    public function setPasswordAttribute($value)
-    {
-        $this->attributes['password'] = Hash::make($value);
-    }
+    // public function setPasswordAttribute($value)
+    // {
+    //     $this->attributes['password'] = Hash::make($value);
+    // }
 
     /**
      * Check if user is admin
